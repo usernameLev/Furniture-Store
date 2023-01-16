@@ -1,1 +1,7 @@
 // Заголовки, общие БЄМ блоки и проче...
+._footer-title {
+  @include adaptiveValue('font-size', 24, 20, 1);
+  line-height: prc(29, 24);
+  font-weight: 700;
+  color: #000000;
+}
