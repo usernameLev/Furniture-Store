@@ -44,6 +44,16 @@
 // padding: calc(10px + (30 - 10) * (100vw - 320px) / (1620 - 320));
 @mixin adaptiveValue($property, $maxSize, $minSize, $type) {
   @if $type == 1 {
+    // Больше контейнера не увеличивается, т.е за ширину контейнера не будет увеличиваться значение, будет максимально заданное значение
+    $addSize: $maxSize - $minSize;
+    #{$property}: $maxSize + px;
+
+    @media (max-width: ($maxWidth + px)) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  } @else if $type == 2 {
     $addSize: $maxSize - $minSize;
 
     // Увеличивается и уменьшается от заданного контейнера
@@ -53,15 +63,5 @@
         #{$addSize} *
         ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth})
     );
-  } @else if $type == 2 {
-    // Больше контейнера не увеличивается, т.е за ширину контейнера не будет увеличиваться значение, будет максимально заданное значение
-    $addSize: $maxSize - $minSize;
-    #{$property}: $maxSize + px;
-
-    @media (max-width: ($maxWidth + px)) {
-      #{$property}: calc(
-        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$minSize * 320})
-      );
-    }
   }
 }

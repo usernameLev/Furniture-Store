@@ -1,14 +1,26 @@
 //<BUTTONS (a.btn+tab)>
 // Снипет (HTML): btn
 
+// .button {
+// 	display: inline-flex;
+// 	padding: 0px 0px;
+// 	@media (any-hover: hover) {
+// 		&:hover {
+// 		}
+// 	}
+// 	&._fw {
+// 		width: 100%;
+// 	}
+// }
+
+//++ ============================================================= Project Furniture Store =============================================================
 .button {
-	display: inline-flex;
-	padding: 0px 0px;
-	@media (any-hover: hover) {
-		&:hover {
-		}
-	}
-	&._fw {
-		width: 100%;
-	}
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: rem(48);
+  text-align: center;
+  padding: 0 rem(15);
+  transition: all 0.3s ease 0s;
 }
+//-- ============================================================= Project Furniture Store =============================================================
