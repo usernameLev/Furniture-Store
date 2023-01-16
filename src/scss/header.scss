@@ -39,7 +39,7 @@
   &__main {
     display: flex;
     align-items: center;
-    flex: 0 0 percent(494, 1240);
+    flex: 0 0 prc(494, 1240);
 
     @media (max-width: $tablet) {
       flex: 1 1 auto;
