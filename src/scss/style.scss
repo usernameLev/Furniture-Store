@@ -149,6 +149,12 @@ body {
   }
 }
 
+.page {
+  // .page__advantages
+  &__advantages {
+  }
+}
+
 .main-slider {
   background-color: #fcf8f3;
 
@@ -411,4 +417,58 @@ body {
     }
   }
 }
+
+//-- ============================================================= Advantages =============================================================
+.advantages {
+  @include adaptiveValue('padding-top', 88, 30, 1);
+  @include adaptiveValue('padding-bottom', 88, 30, 1);
+
+  // .advantages__container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  // .advantages__item
+  &__item {
+    display: inline-grid;
+    grid-template: auto auto / rem(85) 1fr;
+    padding: rem(15) 0;
+
+    @media (max-width: $tablet) {
+      min-width: rem(280);
+    }
+
+    @media (max-width: $mobile) {
+      grid-template: auto auto / auto 1fr;
+    }
+  }
+
+  // .advantages__icon
+  &__icon {
+    text-align: center;
+    align-self: center;
+    grid-row: span 2;
+
+    @media (max-width: $mobile) {
+      padding-right: rem(15);
+    }
+  }
+
+  // .advantages__title
+  &__title {
+    font-size: rem(18);
+    line-height: 150%;
+    font-weight: 600;
+    margin-bottom: em(2, 18);
+  }
+
+  // .advantages__text
+  &__text {
+    line-height: 150%;
+    color: $thirdColor;
+  }
+}
+
 //-- ============================================================= Project Furniture Store =============================================================
