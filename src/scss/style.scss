@@ -128,6 +128,7 @@ body {
 // Подключение базовых стилей, шаблонов (заготовок) и вспомогательных  классов
 // Для подключения/отключения конкретных стилей смотри base.scss
 @import 'base';
+@import 'base/forms/button';
 
 // Подключение стилей общих элементов проекта
 @import 'common';
@@ -138,3 +139,276 @@ body {
 
 // Подключение стилей отдельных страниц
 @import 'home';
+
+//++ ============================================================= Project Furniture Store =============================================================
+.page {
+  flex: 1 1 auto;
+
+  // .page__main-slider
+  &__main-slider {
+  }
+}
+
+.main-slider {
+  background-color: #fcf8f3;
+
+  // .main-slider__container
+  &__container {
+    position: relative;
+
+    @media (min-width: $tablet) {
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        background-color: #f9f1e7;
+        top: 0;
+        right: rem(376);
+      }
+    }
+  }
+
+  // .main-slider__body
+  &__body {
+    position: relative;
+    z-index: 2;
+    padding-top: rem(140);
+
+    @media (max-width: $tablet) {
+      padding-top: rem(80);
+    }
+
+    @media (max-width: $mobile) {
+      padding-top: rem(50);
+    }
+
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  // .main-slider__content
+  &__content {
+    flex: 0 0 prc(494, 1240);
+    align-self: flex-start;
+    @include adaptiveValue('margin-bottom', 80, 15, 1);
+
+    @media (max-width: $tablet) {
+      margin: 0 rem(-15);
+    }
+  }
+
+  // .main-slider__slider
+  &__slider {
+    min-width: 0;
+    flex: 1 1 auto;
+    align-self: flex-end;
+
+    @media (min-width: $tablet) {
+      padding-left: rem(32);
+    }
+  }
+}
+
+.content-main {
+  position: relative;
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.72);
+  padding-left: rem(15);
+  padding-right: rem(15);
+  @include adaptiveValue('padding-top', 60, 15, 1);
+  @include adaptiveValue('padding-bottom', 60, 15, 1);
+
+  @media (min-width: $tablet) {
+    background-color: rgba(255, 255, 255, 0.9);
+    @include adaptiveValue('padding', 60, 1, 1);
+
+    // Если браузер поддерживает backdrop-filter
+    @supports (
+      (-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))
+    ) {
+      background-color: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(31px);
+    }
+  }
+
+  // .content-main__title
+  &__title {
+    @include adaptiveValue('font-size', 56, 24, 1);
+    line-height: 120%;
+    font-weight: 700;
+
+    &:not(:last-child) {
+      margin-bottom: em(16, 56);
+    }
+  }
+
+  // .content-main__text
+  &__text {
+    @include adaptiveValue('font-size', 20, 15, 1);
+    line-height: 150%;
+    color: $thirdColor;
+
+    &:not(:last-child) {
+      margin-bottom: em(48, 20);
+    }
+  }
+
+  // .content-main__button
+  &__button {
+    @include adaptiveValue('font-size', 20, 16, 1);
+    font-weight: 600;
+    width: 100%;
+    @include adaptiveValue('min-height', 78, 45, 1);
+    color: #ffffff;
+    background-color: $secondColor;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #966749;
+      }
+    }
+  }
+}
+
+.slider-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media (max-width: $tablet) {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  // .slider-main__controls
+  &__controls {
+    align-self: stretch;
+    margin-bottom: rem(20);
+
+    @media (max-width: $tablet) {
+      margin-top: rem(10);
+    }
+  }
+
+  // .slider-main__body
+  &__body {
+    &.swiper {
+      overflow: visible;
+
+      @media (min-width: $tablet) {
+        @include adaptiveValue('width', 934, 290, 1);
+      }
+
+      @media (max-width: $tablet) {
+        margin: 0 rem(-15);
+      }
+    }
+  }
+
+  // .slider-main__wrapper
+  &__wrapper {
+  }
+
+  // .slider-main__slide
+  &__slide {
+    position: relative;
+    margin-right: 32px;
+  }
+
+  // .slider-main__image
+  &__image {
+    padding-bottom: 59.1%;
+  }
+
+  // .slider-main__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-width: rem(295);
+    max-height: rem(300);
+    overflow: auto;
+    color: inherit;
+    background-color: rgba(255, 255, 255, 0.9);
+    @include adaptiveValue('padding', 24, 15, 1);
+
+    @media (min-width: $mobile) {
+      position: absolute;
+      min-width: rem(350);
+      @include adaptiveValue('right', 40, 0, 1);
+      @include adaptiveValue('bottom', 40, 0, 1);
+    }
+
+    // Если браузер поддерживает backdrop-filter
+    @supports (
+      (-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))
+    ) {
+      background-color: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(31px);
+    }
+  }
+
+  // .slider-main__title
+  &__title {
+    @include adaptiveValue('font-size', 28, 22, 1);
+    line-height: 120%;
+    font-weight: 600;
+
+    &:not(:last-child) {
+      margin-bottom: em(4, 28);
+    }
+  }
+
+  // .slider-main__text
+  &__text {
+    line-height: 150%;
+    color: $thirdColor;
+
+    &:not(:last-child) {
+      margin-bottom: em(8, 16);
+    }
+  }
+
+  // .slider-main__price
+  &__price {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    @include adaptiveValue('font-size', 20, 16, 1);
+    line-height: 150%;
+    font-weight: 600;
+
+    &::before {
+      font-size: rem(12);
+      margin-left: rem(10);
+    }
+  }
+}
+
+.controls-slider-main {
+  display: flex;
+  align-items: center;
+
+  // .controls-slider-main__dots
+  &__dots {
+    flex: 1 1 auto;
+
+    @media (min-width: $tablet) {
+      padding: 0 rem(20);
+    }
+
+    @media (max-width: $tablet) {
+      justify-content: center;
+    }
+  }
+
+  // .controls-slider-main__arrows
+  &__arrows {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+}
+//-- ============================================================= Project Furniture Store =============================================================

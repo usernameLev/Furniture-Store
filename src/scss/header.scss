@@ -2,8 +2,33 @@
 .header {
   position: absolute;
   width: 100%;
+  min-height: rem(40);
   top: 0;
   left: 0;
+
+  @media (max-width: $mobile) {
+    min-height: rem(5);
+  }
+
+  &._scroll {
+    .header__wrapper {
+      background-color: rgb(255, 255, 255, 0.8);
+
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: rgb(255, 255, 255, 0.9);
+        }
+      }
+    }
+
+    .header__body {
+      min-height: rem(50);
+
+      @media (min-width: $mobile) {
+        min-height: rem(70);
+      }
+    }
+  }
 
   // .header__wrapper
   &__wrapper {
@@ -12,6 +37,7 @@
     width: 100%;
     top: 0;
     left: 0;
+    transition: background-color 0.3s ease 0s;
   }
 
   // .header__container
@@ -25,6 +51,7 @@
     align-items: center;
     min-height: rem(125);
     padding: rem(5) 0;
+    transition: min-height 0.3s ease 0s;
 
     @media (max-width: $tablet) {
       min-height: rem(80);
