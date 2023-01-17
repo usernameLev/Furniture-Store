@@ -161,6 +161,12 @@ body {
   }
 }
 
+.page {
+  // .page__rooms
+  &__rooms {
+  }
+}
+
 .main-slider {
   background-color: #fcf8f3;
 
@@ -681,6 +687,259 @@ body {
         color: $secondColor;
       }
     }
+  }
+}
+
+// TODO Rooms ==========================================================================================================================
+.rooms {
+  background-color: #fcf8f3;
+  @include adaptiveValue('padding-top', 44, 30, 1);
+  @include adaptiveValue('padding-bottom', 44, 30, 1);
+
+  // .rooms__container
+  &__container {
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  // .rooms__body
+  &__body {
+    position: relative;
+    z-index: 5;
+    flex: 0 0 prc(465, 1240);
+    align-self: center;
+
+    @media (min-width: $tablet) {
+      @include adaptiveValue('padding-right', 80, 30, 1);
+    }
+
+    @media (max-width: $tablet) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  // .rooms__title
+  &__title {
+    text-align: left;
+    &:not(:last-child) {
+      margin-bottom: em(8, 40);
+    }
+  }
+
+  // .rooms__text
+  &__text {
+    line-height: 150%;
+
+    &:not(:last-child) {
+      margin-bottom: rem(24);
+    }
+  }
+
+  // .rooms__button
+  &__button {
+    min-width: rem(180);
+    color: #ffffff;
+    background-color: $secondColor;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #8d6146;
+      }
+    }
+  }
+
+  // .rooms__slider
+  &__slider {
+    min-width: 0;
+    align-self: flex-start;
+    flex: 1 1 auto;
+
+    @media (max-width: $mobileSmall) {
+      margin: 0 rem(-15);
+    }
+  }
+}
+
+.slider-rooms {
+  position: relative;
+
+  // .slider-rooms__body
+  &__body {
+    &.swiper {
+      position: relative;
+      overflow: visible;
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        width: 100vw;
+        height: 100%;
+        background-color: #fcf8f3;
+        top: 0;
+        left: 0;
+        transform: translate(-100%, 0);
+      }
+    }
+  }
+
+  // .slider-rooms__wrapper
+  .slider-rooms__wrapper {
+  }
+
+  // .slider-rooms__slide
+  &__slide {
+    position: relative;
+    width: rem(372) !important;
+    @include adaptiveValue('min-height', 585, 400, 1);
+    overflow: hidden;
+    margin-right: rem(24);
+
+    &.swiper-slide-active {
+      .slider-rooms__image {
+        height: 100%;
+      }
+    }
+
+    &.swiper-slide-active {
+      .slider-rooms__content {
+        opacity: 1;
+        visibility: visible;
+        bottom: rem(24);
+      }
+    }
+
+    @media (max-width: $mobileSmall) {
+      width: 100% !important;
+    }
+  }
+
+  // .slider-rooms__image
+  &__image {
+    height: 100%;
+    transition: height 0.3s ease 0s;
+
+    @media (min-width: $mobile) {
+      height: 83%;
+    }
+  }
+
+  // .slider-rooms__content
+  &__content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    max-width: rem(240);
+    color: inherit;
+    background-color: rgba(255, 255, 255, 0.9);
+    @include adaptiveValue('left', 24, 15, 1);
+    @include adaptiveValue('bottom', 24, 15, 1);
+    @include adaptiveValue('padding', 32, 15, 1);
+    bottom: -100%;
+    transition: bottom 0.5s ease 0s;
+    // Если браузер поддерживает backdrop-filter
+    @supports (
+      (-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))
+    ) {
+      background-color: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(31px);
+    }
+
+    &::before {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: rem(48);
+      height: rem(48);
+      color: #ffffff;
+      background-color: $secondColor;
+      right: 0;
+      bottom: 0;
+      transform: translate(100%, 0);
+    }
+  }
+
+  // .slider-rooms__label
+  &__label {
+  }
+
+  // .slider-rooms__title
+  &__title {
+    @include adaptiveValue('font-size', 28, 24, 1);
+    font-weight: 600;
+  }
+
+  // .slider-rooms__arrows
+  &__arrows {
+    position: absolute;
+    z-index: 5;
+    justify-content: space-between;
+    width: calc(100% - rem(48));
+    top: 50%;
+    left: rem(24);
+    transform: translate(0, -50%);
+    pointer-events: none;
+
+    @media (min-width: em(1330)) {
+      width: calc(100% + rem(48));
+      left: rem(-24);
+    }
+  }
+
+  // .slider-rooms__dots
+  &__dots {
+    @media (min-width: $mobile) {
+      position: absolute;
+      width: 100%;
+      left: rem(396);
+      bottom: rem(30);
+    }
+
+    @media (max-width: $mobile) {
+      justify-content: center;
+      padding-top: rem(15);
+    }
+  }
+}
+
+.label-slider {
+  display: grid;
+  grid-template-columns: auto rem(27) auto;
+  justify-content: start;
+  align-items: center;
+  color: $fourthColor;
+  gap: rem(8);
+
+  &:not(:last-child) {
+    margin-bottom: rem(8);
+  }
+
+  // .label-slider__number
+  &__number {
+  }
+
+  // .label-slider__line
+  &__line {
+    height: rem(1);
+    background-color: $fourthColor;
+  }
+
+  // .label-slider__text
+  &__text {
+  }
+}
+
+.slider-arrow {
+  // .slider-arrow_white
+  &_white {
+  }
+  // .slider-arrow_prev
+  &_prev {
+  }
+  // .slider-arrow_next
+  &_next {
   }
 }
 

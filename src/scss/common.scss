@@ -27,6 +27,7 @@
   background-color: rgba(232, 159, 113, 0.3);
   cursor: pointer;
   transition: all 0.3s ease 0s;
+  pointer-events: auto;
 
   // .slider-arrow_prev
   &_prev {
