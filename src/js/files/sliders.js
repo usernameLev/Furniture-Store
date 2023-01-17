@@ -19,7 +19,7 @@ EffectFade, Lazy, Manipulation
 // Базовые стили
 import '../../scss/base/swiper.scss';
 // Полный набор стилей из scss/libs/swiper.scss
-// import "../../scss/libs/swiper.scss";
+// import '../../scss/libs/swiper.scss';
 // Полный набор стилей из node_modules
 // import 'swiper/css';
 
@@ -143,7 +143,7 @@ window.addEventListener('load', function (e) {
   //initSlidersScroll();
 });
 
-//++ ============================================================= Project Furniture Store =============================================================
+// TODO Project Furniture Store++ ==========================================================================================================================
 if (document.querySelector('.slider-main__body')) {
   new Swiper('.slider-main__body', {
     modules: [Pagination, Navigation],
@@ -219,4 +219,34 @@ if (document.querySelector('.slider-main__body')) {
     on: {},
   });
 }
-//-- ============================================================= Project Furniture Store =============================================================
+
+// TODO Rooms ==========================================================================================================================
+if (document.querySelector('.slider-rooms__body.swiper')) {
+  new Swiper('.slider-rooms__body.swiper', {
+    modules: [Pagination, Navigation],
+    observer: true,
+    observeParents: true,
+    slidesPerView: 'auto',
+    spaceBetween: 0,
+    watchOverflow: true,
+    speed: 800,
+    loop: true,
+    loopAdditionalSlides: 5,
+    preloadImages: false,
+    parallax: true,
+
+    // Пагинация
+    pagination: {
+      el: '.slider-rooms__dots',
+      clickable: true,
+    },
+
+    // Кнопки "влево/вправо"
+    navigation: {
+      prevEl: '.slider-rooms .slider-arrow_prev',
+      nextEl: '.slider-rooms .slider-arrow_next',
+    },
+  });
+}
+
+// TODO Project Furniture Store-- ==========================================================================================================================
