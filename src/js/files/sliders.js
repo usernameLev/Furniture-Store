@@ -39,7 +39,7 @@ function initSliders() {
       observeParents: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      autoHeight: true,
+      autoHeight: false,
       speed: 800,
 
       //touchRatio: 0,
@@ -141,6 +141,47 @@ window.addEventListener('load', function (e) {
   initSliders();
   // Запуск инициализации скролла на базе слайдера (по классу swiper_scroll)
   //initSlidersScroll();
+
+  // TODO Tips ==========================================================================================================================
+  if (document.querySelector('.slider-tips__body')) {
+    new Swiper('.slider-tips__body', {
+      modules: [Pagination, Navigation],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 3,
+      spaceBetween: 32,
+      speed: 800,
+      loop: true,
+      watchOverflow: true,
+
+      // Пагинация
+      pagination: {
+        el: '.slider-tips__dots',
+        clickable: true,
+      },
+
+      // Кнопки "влево/вправо"
+      navigation: {
+        prevEl: '.slider-tips .slider-arrow_prev',
+        nextEl: '.slider-tips .slider-arrow_next',
+      },
+
+      breakpoints: {
+        320: {
+          slidesPerView: 1.1,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 32,
+        },
+      },
+    });
+  }
 });
 
 // TODO Project Furniture Store++ ==========================================================================================================================
